@@ -1,0 +1,22 @@
+<%- include("Partials/header.ejs") -%>
+<h1>Home</h1>
+<p><%= StartingContent %></p>
+
+<% function truncateText(text,maxLength)
+{
+    if(text.length>maxLength)
+    {
+        return text.substring(0,maxLength)+"...";
+    }
+    return text;
+} %>
+
+<% Posts.forEach(function(iteration)
+{ %>
+    <h1><%=iteration.Title%></h1>
+    <p><%= truncateText(iteration.Content,100)%>
+    <a href="/posts/<%=iteration.Title%>">Read More</a></p>
+ <% }) %>
+
+
+<%- include("Partials/footer.ejs") -%>
